@@ -1,0 +1,11 @@
+chatgpt:
+  dbDriver: postgres
+  DBSource: postgresql://myuser:mypass@localhost:5432/chatgpt?sslmode=disable
+  serverAddress: :8080
+  tokenSymmetricKey: abcdefghijklmnopqrstuvwxyz123456
+  accessTokenDuration: 15m
+  refreshTokenDuration: 24h
+  chatGPTAPIKey: sk-I7Bxx
+  model: gpt-3.5-turbo
+  maxTokens: 520
+  proxy: ""
