@@ -5,8 +5,9 @@ import (
 	"time"
 
 	"github.com/o1egl/paseto"
-	"golang.org/x/crypto/chacha20poly1305"
 )
+
+const minSecretKeySize = 32
 
 // PasetoMaker is a PASETO token maker
 type PasetoMaker struct {
@@ -16,8 +17,8 @@ type PasetoMaker struct {
 
 // NewPasetoMaker creates a new PasetoMaker
 func NewPasetoMaker(symmetricKey string) (Maker, error) {
-	if len(symmetricKey) != chacha20poly1305.KeySize {
-		return nil, fmt.Errorf("invalid key size: must be exactly %d characters", chacha20poly1305.KeySize)
+	if len(symmetricKey) != minSecretKeySize {
+		return nil, fmt.Errorf("invalid key size: must be exactly %d characters", minSecretKeySize)
 	}
 
 	maker := &PasetoMaker{
